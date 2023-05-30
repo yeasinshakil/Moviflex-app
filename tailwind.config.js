@@ -12,7 +12,7 @@ export default {
         black3: '#020c1b',
         blackLighter: '#1c4b91',
         blackLight: '#173d77',
-        pink: '#da2f68',
+        pink1: '#da2f68',
         orange: '#f89e00',
         gradient: 'linear-gradient(98.37deg, #f89e00 0.99%, #da2f68 100%)'
       },
