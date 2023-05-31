@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchDataFromApi } from './utls/api'
 import { getApiConfiguration, getGenres } from './store/homeSlice'
 import { Route, Routes } from 'react-router-dom'
+import Footer from './components/footer/Footer';
 
 function App() {
   const { url } = useSelector((state) => state.home)
@@ -63,6 +64,8 @@ function App() {
         <Route path="/explore/:mediaType" element={<Explore />}></Route>
         <Route path="*" element={<PageNotFound />}></Route>
       </Routes>
+
+      <Footer />
 
     </>
   )

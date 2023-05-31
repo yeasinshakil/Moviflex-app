@@ -75,7 +75,7 @@ const Header = () => {
                 <div className=' flex items-center justify-between'>
 
                     <div>
-                        <img src={logo} alt="" className=' h-[50px] cursor-pointer' />
+                        <img src={logo} alt="" className=' h-[50px] cursor-pointer' onClick={()=> navigate('/')} />
                     </div>
                         <div className={` text-white sm:flex gap-6  ${mobileMenu ? ' flex flex-col absolute top-[60px] left-0 bg-black3 w-full py-[20px] px-0 border-t-white/10 animate-mobileMenu': 'hidden'}`}>
                         <span className={`cursor-pointer ${mobileMenu? ' text-[20px] w-full h-auto py-[15px]  px-[20px] m-0 flex flex-col items-start' : ''} hover:text-pink1`}>Movies</span>
