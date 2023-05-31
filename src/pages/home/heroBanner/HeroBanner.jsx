@@ -32,7 +32,7 @@ function HeroBanner() {
             <div className=' w-full h-[250px] absolute bottom-0 left-0 bg-gradient-to-b from-transparent to-black1'></div>
             <ContentWrapper>
                 <div className=' flex items-center flex-col text-center text-white max-w-[800px] my-0 mx-auto relative'>
-                    <span className=' text-[50px] md:text-[90px] md:mb-0 font-bold mb-[10px]'>Welcom.</span>
+                    <span className=' text-[50px] md:text-[90px] md:mb-0 font-bold mb-[10px]'>Welcome.</span>
                     <span className=' text-[18px] mb-[40px] font-medium md:text-[24px]'>Millions of Movies, Tv shows and lot's of people to discover. Explore Now</span>
                     <div className=' w-full flex items-center'>
                         <input type="text" placeholder='Search for a movie or tv show.....'
