@@ -15,7 +15,7 @@ function SwitchTab({ data, onTabChange }) {
         <div className=' h-[34px] bg-white rounded-[20px] p-[2px]'>
             <div className=' flex items-center h-[30px] relative'>
                 {data.map((tab, i) => (
-                    <span className={` h-full flex items-center justify-center w-[100px]  text-[14px] relative z-10 cursor-pointer transition-colors  ${selectedTab === i ? ' text-white' : 'text-black1'}`}
+                    <span key={i} className={` h-full flex items-center justify-center w-[100px]  text-[14px] relative z-10 cursor-pointer transition-colors  ${selectedTab === i ? ' text-white' : 'text-black1'}`}
                     onClick={()=> activeTab(tab, i)}
                     >{tab}</span>
                 ))}
