@@ -26,9 +26,9 @@ function HeroBanner() {
     }
     return (
         <div className=' w-full h-[450px] md:h-[700px] bg-black1 flex items-center relative'>
-            <div className=' w-full h-full absolute top-0 left-0 opacity-50 overflow-hidden'>
+            {!loading && <div className=' w-full h-full absolute top-0 left-0 opacity-50 overflow-hidden'>
                 <Img src={background} alt="" />
-            </div>
+            </div>}
             <div className=' w-full h-[250px] absolute bottom-0 left-0 bg-gradient-to-b from-transparent to-black1'></div>
             <ContentWrapper>
                 <div className=' flex items-center flex-col text-center text-white max-w-[800px] my-0 mx-auto relative'>
@@ -39,8 +39,8 @@ function HeroBanner() {
                             className=' w-5/6 h-[50px] bg-white border-0 outline-none rounded-l-[30px] py-0 px-[20px] text-[14px] md:w-4.5/6 md:h-[60px] md:text-[20px] md:px-[30px]'
                             onChange={(e) => setQuery(e.target.value)}
                             onKeyUp={searchQueryHandler} />
-                        <button 
-                        className=' w-[100px] md:w-[150px] text-[16px] md:text-[18px] text-white h-[50px] md:h-[60px] outline-none border-none cursor-pointer rounded-r-[30px] bg-gradient-to-r from-yellow-500 to-pink1 hover:bg-gradient-to-l transition duration-0 hover:transition-all hover:duration-1000'
+                        <button
+                            className=' w-[100px] md:w-[150px] text-[16px] md:text-[18px] text-white h-[50px] md:h-[60px] outline-none border-none cursor-pointer rounded-r-[30px] bg-gradient-to-r from-yellow-500 to-pink1 hover:bg-gradient-to-l transition duration-0 hover:transition-all hover:duration-1000'
                         >Search</button>
                     </div>
                 </div>

@@ -1,15 +1,76 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './header.scss'
 import logo from '../../assets/moviflex logo.png';
 import { HiOutlineSearch } from 'react-icons/hi';
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
 import ContentWrapper from '../contentWrapper/ContentWrapper';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Header = () => {
-    const [mobileMenu, setMobileMenu] = useState(false)
+    const [show, setShow] = useState("top");
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [mobileMenu, setMobileMenu] = useState(false);
+  const [query, setQuery] = useState("");
+  const [showSearch, setShowSearch] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(()=> {
+    window.scrollTo(0, 0)
+  }, [location])
+
+  const openSearch = () => {
+    setMobileMenu(false)
+    setShowSearch(true)
+  }
+  const openMobileMenu = () => {
+    setMobileMenu(true)
+    setShowSearch(false)
+  }
+  const controlNavbar = () => {
+    // console.log(window.scrollY)
+    if (window.scrollY > 200) {
+      if (window.scrollY > lastScrollY && !mobileMenu) {
+        setLastScrollY('hide')
+      } else {
+        setShow('show')
+      }
+      setShow('show')
+    } else{
+      setShow('top')
+    }
+    setLastScrollY(window.scrollY)
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', controlNavbar)
+    return () => {
+      window.removeEventListener('scroll', controlNavbar)
+    }
+  }, [lastScrollY])
+
+  const searchQueryHandler = (event) => {
+    if (event.key === 'Enter' && query.length > 0) {
+      navigate(`/search/${query}`);
+      setTimeout(() => {
+        setShowSearch(false)
+      }, 1000)
+    }
+  }
+
+  const navigationHandler = (type) => {
+    if (type === 'movie') {
+      navigate('/explore/movie')
+      setMobileMenu(false)
+    } else {
+      navigate('/explore/tv')
+      setMobileMenu(false)
+    }
+  }
+
     return (
-        <div className={` h-[60px] w-full fixed flex items-center translate-y-0 z-20 backdrop-blur-sm  ${mobileMenu ? ' bg-black3' : 'bg-black/20'}`}>
+        <div className={` h-[60px] w-full fixed flex items-center translate-y-0 z-20 backdrop-blur-sm  ${mobileMenu ? ' bg-black3' : 'bg-black/20'} ${show==='top' && ' backdrop-blur-sm'} ${show==='show' && 'bg-black3'} ${show==='hide' && ' -translate-y-[60px]'} `}>
             <ContentWrapper>
                 <div className=' flex items-center justify-between'>
 
