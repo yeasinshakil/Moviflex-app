@@ -13,7 +13,7 @@ import {
     BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 
-function Carousel({ data, loading, endpoint, title }) {
+function Carousel({ data, loading, endPoint, title }) {
 
     const carouselContainer = useRef();
     const { url } = useSelector((state) => state.home);
@@ -66,7 +66,7 @@ function Carousel({ data, loading, endpoint, title }) {
                                     <div
                                         key={item.id}
                                         className="w-[125px] cursor-pointer lg:w-[calc(20%-16px)] md:w-[calc(25%-15px)] flex-shrink-0" onClick={() => navigate(
-                                            `/${item.media_type || endpoint}/${item.id
+                                            `/${item.media_type || endPoint}/${item.id
                                             }`
                                         )}>
                                         <div className="relative w-full aspect-[1/1.5] bg-cover bg-center mb-[30px] flex items-end justify-between p-[10px] posterBlock">
