@@ -1,16 +1,27 @@
 @import "../../../mixins.scss";
 
-.backdrop-img {
 
-    .lazy-load-image-background {
-        width: 100%;
-        height: 100%;
+.detailsBanner {
+    
+    .backdrop-img {
 
-        img {
+        .lazy-load-image-background {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: center;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+ 
+    }
+    .left {
+        .lazy-load-image-background {
+            width: 100%;
+            height: fit-content;
         }
     }
 

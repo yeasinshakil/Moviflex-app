@@ -6,7 +6,7 @@ import Img from '../../../components/lazyLoadImage/LazyLoadImage';
 import ContentWrapper from '../../../components/contentWrapper/ContentWrapper';
 import Genres from '../../../components/genres/Genres';
 import CircleRating from '../../../components/circleRating/CircleRating';
-import {PlayIcon} from './PlayBtn'
+import { PlayIcon } from './PlayBtn'
 import dayjs from 'dayjs';
 import VideoPopup from '../../../components/videoPopup/VideoPopup';
 import './detailsBanner.scss'
@@ -19,31 +19,31 @@ function DetailsBanner({ video, crew }) {
     const { url } = useSelector(state => state.home)
 
     const _genres = data?.genres?.map((g) => g.id)
-    const director = crew?.filter((f)=> f.job==='Director');
-    const writer = crew?.filter((f)=> f.job==='Screenplay' || f.job==='Writer' || f.job==='Story')
+    const director = crew?.filter((f) => f.job === 'Director');
+    const writer = crew?.filter((f) => f.job === 'Screenplay' || f.job === 'Writer' || f.job === 'Story')
 
     const toHoursAndMinutes = (totalMinutes) => {
         const hours = Math.floor(totalMinutes / 60);
         const minutes = totalMinutes % 60;
         return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`;
     };
-  return (
-    <div className=" w-full bg-black1 pt-[100px] mb-[50px] md:mb-0 md:pt-[120px] min-h-[700px] ">
+    return (
+        <div className=" w-full bg-black1 pt-[100px] mb-[50px] md:mb-0 md:pt-[120px] min-h-[700px] detailsBanner ">
             {!loading ? (
                 <>
                     {!!data && (
                         <React.Fragment>
-                            <div className=" w-full h-full absolute top-0 left-0 opacity-10 overflow-hidden">
+                            <div className=" w-full h-full absolute top-0 left-0 opacity-10 overflow-hidden  backdrop-img">
                                 <Img src={url.backdrop + data.backdrop_path} />
                             </div>
                             <div className=" w-full h-[250px] bg-gradient-to-b from-transparent to-black1 absolute bottom-0 left-0 "></div>
                             <ContentWrapper>
-                                <div className="flex relative flex-col gap-[25px] md:gap-[50px] md:flex-row backdrop-img">
+                                <div className="flex relative flex-col gap-[25px] md:gap-[50px] md:flex-row  ">
 
-                                    <div className=" flex-shrink-0">
+                                    <div className=" flex-shrink-0 left">
                                         {data.poster_path ? (
-                                            <Img className=' w-full block rounded-xl md:max-w-[350px]' src={url.backdrop + data.poster_path} />
-                                        ) : (<Img className=' w-full block rounded-xl md:max-w-[350px]' src={PosterFallback} />)}
+                                            <Img className='w-full block rounded-xl md:max-w-[350px]' src={url.backdrop + data.poster_path} />
+                                        ) : (<Img className='posterImg' src={PosterFallback} />)}
                                     </div>
                                     <div className=" text-white">
                                         <div className=" text-[28px] leading-10 md:text-[34px] md:leading-[44px]">
@@ -57,11 +57,11 @@ function DetailsBanner({ video, crew }) {
                                         <Genres data={_genres} />
                                         <div className="flex items-center gap-6 mb-6">
                                             <CircleRating rating={data?.vote_average.toFixed(1)} />
-                                            <div className=" playbtn" onClick={()=> {
+                                            <div className=" playbtn" onClick={() => {
                                                 setShow(true)
                                                 setVideoId(video.key)
                                             }}>
-                                                <PlayIcon/>
+                                                <PlayIcon />
                                                 <span className=" text ">
                                                     Watch Trailer
                                                 </span>
@@ -117,10 +117,10 @@ function DetailsBanner({ video, crew }) {
                                                         Director: {" "}
                                                     </span>
                                                     <span className="mr-3 opacity-50 leading-6">
-                                                        {director?.map((d, i)=> (
+                                                        {director?.map((d, i) => (
                                                             <span key={i}>
                                                                 {d.name}
-                                                                {director?.length -1 !== i && ", "}
+                                                                {director?.length - 1 !== i && ", "}
                                                             </span>
                                                         ))}
                                                     </span>
@@ -134,10 +134,10 @@ function DetailsBanner({ video, crew }) {
                                                         Writer: {" "}
                                                     </span>
                                                     <span className="mr-3 opacity-50 leading-6">
-                                                        {writer?.map((w, i)=> (
+                                                        {writer?.map((w, i) => (
                                                             <span key={i}>
                                                                 {w.name}
-                                                                {writer?.length -1 !== i && ", "}
+                                                                {writer?.length - 1 !== i && ", "}
                                                             </span>
                                                         ))}
                                                     </span>
@@ -151,10 +151,10 @@ function DetailsBanner({ video, crew }) {
                                                         Creator: {" "}
                                                     </span>
                                                     <span className="mr-3 opacity-50 leading-6">
-                                                        {data?.created_by?.map((w, i)=> (
+                                                        {data?.created_by?.map((w, i) => (
                                                             <span key={i}>
                                                                 {w.name}
-                                                                {data?.created_by?.length -1 !== i && ", "}
+                                                                {data?.created_by?.length - 1 !== i && ", "}
                                                             </span>
                                                         ))}
                                                     </span>
@@ -164,10 +164,10 @@ function DetailsBanner({ video, crew }) {
                                     </div>
                                 </div>
                                 <VideoPopup
-                                show={show}
-                                setShow={setShow}
-                                videoId={videoId}
-                                setVideoId={setVideoId}
+                                    show={show}
+                                    setShow={setShow}
+                                    videoId={videoId}
+                                    setVideoId={setVideoId}
                                 />
                             </ContentWrapper>
                         </React.Fragment>
@@ -177,7 +177,7 @@ function DetailsBanner({ video, crew }) {
                 <p></p>
             )}
         </div>
-  )
+    )
 }
 
 export default DetailsBanner
