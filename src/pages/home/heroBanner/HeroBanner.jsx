@@ -35,12 +35,22 @@ function HeroBanner() {
                     <span className=' text-[50px] md:text-[90px] md:mb-0 font-bold mb-[10px]'>Welcome.</span>
                     <span className=' text-[18px] mb-[40px] font-medium md:text-[24px]'>Millions of Movies, Tv shows and lot's of people to discover. Explore Now</span>
                     <div className=' w-full flex items-center'>
-                        <input type="text" placeholder='Search for a movie or tv show.....'
-                            className=' w-5/6 h-[50px] bg-white border-0 outline-none rounded-l-[30px] py-0 px-[20px] text-[14px] md:w-4.5/6 md:h-[60px] md:text-[20px] md:px-[30px]'
+                        <input
+                            type="text"
+                            placeholder='Search for a movie or tv show.....'
+                            
+
+                            className=' w-5/6 h-[50px] bg-white border-0 outline-none rounded-l-[30px] py-0 px-[20px] text-[14px] md:w-4.5/6 md:h-[60px] md:text-[20px] md:px-[30px] text-black1'
                             onChange={(e) => setQuery(e.target.value)}
                             onKeyUp={searchQueryHandler} />
+
                         <button
                             className=' w-[100px] md:w-[150px] text-[16px] md:text-[18px] text-white h-[50px] md:h-[60px] outline-none border-none cursor-pointer rounded-r-[30px] bg-gradient-to-r from-yellow-500 to-pink1 hover:bg-gradient-to-l transition duration-0 hover:transition-all hover:duration-1000'
+                            onClick={() => {
+                                if (query.length > 0) {
+                                    navigate(`/search/${query}`)
+                                }
+                            }}
                         >Search</button>
                     </div>
                 </div>
