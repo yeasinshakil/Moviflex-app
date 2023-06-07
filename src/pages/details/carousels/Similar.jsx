@@ -1,18 +1,19 @@
 import React from "react";
-import Carousel from "../../../components/carousel/Carousel";
 import useFetch from "../../../components/hooks/useFetch";
+import Carousel from "../../../components/carousel/Carousel";
 
-;
 
-const Recommendation = ({ mediaType, id }) => {
+
+const Similar = ({ mediaType, id }) => {
     const { data, loading, error } = useFetch(
-        `/${mediaType}/${id}/recommendations`
+        `/${mediaType}/${id}/similar`
     );
     
+    const title = mediaType === "tv" ? "Similar TV Shows" : "Similar Movies";
 
     return (
         <Carousel
-            title="Recommendations"
+            title={title}
             data={data?.results}
             loading={loading}
             endPoint={mediaType}
@@ -20,4 +21,4 @@ const Recommendation = ({ mediaType, id }) => {
     );
 };
 
-export default Recommendation;
+export default Similar;

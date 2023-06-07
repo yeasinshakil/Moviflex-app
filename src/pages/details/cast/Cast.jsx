@@ -16,10 +16,10 @@ const Cast = ({ data, loading }) => {
                 <div className="text-2xl text-white mb-6">Top Cast</div>
                 {!loading ? (
                     <div className=" flex gap-5 overflow-y-hidden -mx-5 px-5 md:p-0 md:m-0">
-                        {data?.map((item)=> {
+                        {data?.map((item, i)=> {
                             const imgUrl = item.profile_path ? url.profile + item.profile_path : avatar;
                             return (
-                                <div className="text-center text-white">
+                                <div key={i} className="text-center text-white">
                                     <div className=" w-[125px] h-[125px] rounded-full overflow-hidden mb-4 md:w-[175px] md:h-[175px] md:mb-6 profileImg ">
                                         <Img src={imgUrl} />
                                     </div>
