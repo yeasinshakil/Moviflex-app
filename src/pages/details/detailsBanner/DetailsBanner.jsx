@@ -79,7 +79,7 @@ function DetailsBanner({ video, crew }) {
 
                                         <div className=" border-b-white/10 py-4 flex">
                                             {data.status && (
-                                                <div className=" mr-3 flex flex-nowrap">
+                                                <div className=" mr-3 flex flex-wrap">
                                                     <span className=" mr-3 opacity-50 leading-6 bold">
                                                         status: {" "}
                                                     </span>
@@ -89,7 +89,7 @@ function DetailsBanner({ video, crew }) {
                                                 </div>
                                             )}
                                             {data.release_date && (
-                                                <div className=" mr-3 flex flex-nowrap">
+                                                <div className=" mr-3 flex flex-wrap">
                                                     <span className="mr-3 opacity-50 leading-6 bold">
                                                         Release Date: {" "}
                                                     </span>
@@ -99,7 +99,7 @@ function DetailsBanner({ video, crew }) {
                                                 </div>
                                             )}
                                             {data.runtime && (
-                                                <div className="infoItem">
+                                                <div className=" mr-3 flex flex-wrap">
                                                     <span className="mr-3 opacity-50 leading-6 bold">
                                                         Run Time: {" "}
                                                     </span>
