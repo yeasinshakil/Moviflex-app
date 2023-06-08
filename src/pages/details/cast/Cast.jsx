@@ -9,6 +9,16 @@ import './cast.scss'
 const Cast = ({ data, loading }) => {
     const { url } = useSelector((state) => state.home);
 
+    // skeleton function
+    const skItem = () => {
+        return (
+            <div className="skItem">
+                <div className=" w-[125px] h-[125px] rounded-full mb-4 md:w-[175px] md:h-[175px] md:mb-6 skeleton"></div>
+                <div className="h-[20px] w-full rounded-lg mb-2.5 skeleton"></div>
+                <div className="h-[20px] w-[75%] rounded-lg my-0 mx-auto skeleton"></div>
+            </div>
+        );
+    };
     
     return (
         <div className=" relative mb-[50px]">
@@ -30,7 +40,15 @@ const Cast = ({ data, loading }) => {
                         })}
                     </div>
                 ) : (
-                    <p></p>
+                    <div className=' flex gap-2.5 overflow-y-hidden -mx-5 px-5 md:p-0 md:m-0 '>
+                            {skItem()}
+                            {skItem()}
+                            {skItem()}
+                            {skItem()}
+                            {skItem()}
+                            {skItem()}
+                            
+                        </div>
                 )}
             </ContentWrapper>
         </div>

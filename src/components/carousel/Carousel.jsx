@@ -31,6 +31,7 @@ function Carousel({ data, loading, endPoint, title }) {
         })
     }
 
+    // skeleton function
     const skItem = () => {
         return (
             <div className=" w-[125px] md:w-[200px] lg:w-[225px] flex-shrink-0">
@@ -88,6 +89,7 @@ function Carousel({ data, loading, endPoint, title }) {
                         </div>
 
                     ) : (
+                        // skeleton function
                         <div className=' flex gap-2.5 overflow-y-hidden -mx-5 px-5 md:gap-5 md:overflow-hidden md:p-0 md:m-0 '>
                             {skItem()}
                             {skItem()}

@@ -10,7 +10,7 @@ const VideosSection = ({ data, loading }) => {
     const [show, setShow] = useState(false);
     const [videoId, setVideoId] = useState(null);
    
-
+// skeleton function
     const loadingSkeleton = () => {
         return (
             <div className=" w-[150px] flex-shrink-0 md:w-[25%]">
@@ -46,6 +46,7 @@ const VideosSection = ({ data, loading }) => {
                         ))}
                     </div>
                 ) : (
+                    // skeleton function
                     <div className=' flex gap-2.5 overflow-y-hidden -mx-5 px-5 md:gap-5 md:overflow-hidden md:p-0 md:m-0 '>
                         {loadingSkeleton()}
                         {loadingSkeleton()}
