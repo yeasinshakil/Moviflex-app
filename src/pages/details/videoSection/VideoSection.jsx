@@ -11,7 +11,15 @@ const VideosSection = ({ data, loading }) => {
     const [videoId, setVideoId] = useState(null);
    
 
-   
+    const loadingSkeleton = () => {
+        return (
+            <div className=" w-[150px] flex-shrink-0 md:w-[25%]">
+                <div className=" w-full aspect-video rounded-xl mb-2.5 skeleton"></div>
+                <div className=" h-[20px] w-full rounded-lg mb-2.5 skeleton"></div>
+                <div className="h-[20px] w-[75%] rounded-lg skeleton"></div>
+            </div>
+        );
+    };
 
     return (
         <div className="relative mb-12">
@@ -38,7 +46,13 @@ const VideosSection = ({ data, loading }) => {
                         ))}
                     </div>
                 ) : (
-                    <p></p>
+                    <div className=' flex gap-2.5 overflow-y-hidden -mx-5 px-5 md:gap-5 md:overflow-hidden md:p-0 md:m-0 '>
+                        {loadingSkeleton()}
+                        {loadingSkeleton()}
+                        {loadingSkeleton()}
+                        {loadingSkeleton()}
+                        {loadingSkeleton()}
+                    </div>
                 )}
             </ContentWrapper>
             <VideoPopup
