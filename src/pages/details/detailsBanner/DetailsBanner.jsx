@@ -10,6 +10,7 @@ import { PlayIcon } from './PlayBtn'
 import dayjs from 'dayjs';
 import VideoPopup from '../../../components/videoPopup/VideoPopup';
 import './detailsBanner.scss'
+import PosterFallback from '../../../assets/no-poster.png'
 
 function DetailsBanner({ video, crew }) {
     const [show, setShow] = useState(false);
