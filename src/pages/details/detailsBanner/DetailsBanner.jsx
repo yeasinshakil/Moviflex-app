@@ -174,7 +174,24 @@ function DetailsBanner({ video, crew }) {
                     )}
                 </>
             ) : (
-                <p></p>
+                // skeleton
+                <div className="flex flex-col relative gap-6 md:gap-12 md:flex-row
+                ">
+                    <ContentWrapper>
+                        <div className=' flex gap-12'>
+                            <div className=" flex-shrink-0 w-full block rounded-xl aspect-[1/1.5] md:max-w-[350px] skeleton"></div>
+                            <div className=" w-full">
+                                <div className=" w-[75%] h-6 mb-12 rounded-[50px] skeleton"></div>
+                                <div className=" w-full h-6 mb-5 rounded-[50px] skeleton"></div>
+                                <div className=" w-full h-6 mb-5 rounded-[50px] skeleton"></div>
+                                <div className=" w-full h-6 mb-5 rounded-[50px] skeleton"></div>
+                                <div className=" w-[50%] h-6 mb-12 rounded-[50px] skeleton"></div>
+                                <div className="row skeleton"></div>
+                                <div className="row skeleton"></div>
+                            </div>
+                        </div>
+                    </ContentWrapper>
+                </div>
             )}
         </div>
     )
