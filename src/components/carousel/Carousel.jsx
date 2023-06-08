@@ -33,11 +33,11 @@ function Carousel({ data, loading, endPoint, title }) {
 
     const skItem = () => {
         return (
-            <div className="skeletonItem">
-                <div className="posterBlock skeleton"></div>
-                <div className="textBlock">
-                    <span className="title skeleton"></span>
-                    <span className="date skeleton"></span>
+            <div className=" w-[125px] md:w-[200px] lg:w-[225px] flex-shrink-0">
+                <div className=" w-full rounded-xl aspect-[1/1.5] mb-7 skeleton"></div>
+                <div className="flex flex-col">
+                    <span className="w-full h-5 mb-2.5 skeleton"></span>
+                    <span className=" w-[75%] h-5 skeleton"></span>
                 </div>
             </div>
         )
@@ -87,7 +87,17 @@ function Carousel({ data, loading, endPoint, title }) {
                             })}
                         </div>
 
-                    ) : (<p></p>)}
+                    ) : (
+                        <div className=' flex gap-2.5 overflow-y-hidden -mx-5 px-5 md:gap-5 md:overflow-hidden md:p-0 md:m-0 '>
+                            {skItem()}
+                            {skItem()}
+                            {skItem()}
+                            {skItem()}
+                            {skItem()}
+                            {skItem()}
+                            
+                        </div>
+                    )}
                 </div>
             </ContentWrapper>
         </div>
